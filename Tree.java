@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.Queue;
+import java.util.LinkedList;
 
 class Node{
 	Node left, right;
@@ -81,6 +83,19 @@ public class Tree{
 		
 	}
 	
+	static void LevelOrderTraversal(Node root){
+		
+		Queue<Node> q = new LinkedList<Node>();
+		q.add(root);
+		while(!q.isEmpty()){
+			Node current = q.poll();
+			System.out.print(current.data + " ");
+			if(current.left != null) q.add(current.left);
+			if(current.right != null) q.add(current.right);
+		}
+		
+	}
+	
 	public static void main(String [] args){
 		
 		Node root = createTree();
@@ -106,6 +121,9 @@ public class Tree{
 		
 		System.out.println("Minimum number of the Tree is");
 		System.out.println(min(root));
+		
+		System.out.println("level order Traversal in list");
+		LevelOrderTraversal(root);
 		
 		
 	}
