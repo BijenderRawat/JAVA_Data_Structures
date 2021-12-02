@@ -15,6 +15,8 @@ public class Tree{
 	
 	static Scanner scn = new Scanner(System.in);
 	
+	
+	// Function to create Tree for us
 	public static Node createTree(){
 		
 		System.out.println("Enter Data");
@@ -29,6 +31,7 @@ public class Tree{
 		
 	}
 	
+	// Function to print Inorder traversal in tree
 	static void inorder(Node root){
 		
 		if(root == null) return;
@@ -38,6 +41,7 @@ public class Tree{
 		
 	}
 	
+	// Functon to print Preorder traversal in tree
 	static void preorder(Node root){
 		
 		if(root == null) return;
@@ -47,6 +51,7 @@ public class Tree{
 		
 	}
 	
+	// Function to print Postorder traversal in tree
 	static void postorder(Node root){
 		
 		if(root == null) return;
@@ -56,6 +61,7 @@ public class Tree{
 		
 	}
 	
+	// Function to print height of tree
 	static int height(Node root){
 		
 		if(root == null) return 0;
@@ -63,6 +69,7 @@ public class Tree{
 		
 	}
 	
+	// Function to print size i.e number of nodes in the tree
 	static int size(Node root){
 		
 		if(root == null) return 0;
@@ -70,6 +77,7 @@ public class Tree{
 		
 	}
 	
+	// Funtion to print maximum number in Tree
 	static int max(Node root){
 		
 		if(root == null) return Integer.MIN_VALUE;
@@ -77,6 +85,7 @@ public class Tree{
 		
 	}
 	
+	// Function to print minimum number in Tree
 	static int min(Node root){
 		
 		if(root == null) return Integer.MAX_VALUE;
@@ -84,6 +93,7 @@ public class Tree{
 		
 	}
 	
+	// Funtion to print Level ORder Traversal in Tree
 	static void LevelOrderTraversal(Node root){
 		
 		Queue<Node> q = new LinkedList<Node>();
@@ -97,6 +107,7 @@ public class Tree{
 		
 	}
 	
+	// Function to print Left View of Tree
 	static void leftview(Node root){
 		
 		if(root == null) return;
@@ -114,6 +125,7 @@ public class Tree{
 		
 	}
 	
+	// Function to print Right View of Tree
 	static void rightview(Node root){
 		
 		if(root == null) return;
@@ -147,7 +159,6 @@ public class Tree{
 		System.out.println("\nHeight Of Tree is");
 		System.out.println(height(root));
 		
-		// Size of Tree means total number of nodes in the tree
 		System.out.println("Size of Tree is");
 		System.out.println(size(root));
 		
