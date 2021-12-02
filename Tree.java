@@ -52,6 +52,13 @@ public class Tree{
 		System.out.print(root.data + " ");
 		
 	}
+	
+	static int height(Node root){
+		
+		if(root == null) return 0;
+		return Math.max(height(root.left), height(root.right))+1;
+		
+	}
 		
 	
 	public static void main(String [] args){
@@ -66,6 +73,9 @@ public class Tree{
 		
 		System.out.println("\nPost Order Traversal");
 		postorder(root);
+		
+		System.out.println("\nHeight Of Tree is");
+		System.out.println(height(root));
 		
 		
 	}
