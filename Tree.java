@@ -93,7 +93,7 @@ public class Tree{
 		
 	}
 	
-	// Funtion to print Level ORder Traversal in Tree
+	// Funtion to print Level Order Traversal in Tree
 	static void LevelOrderTraversal(Node root){
 		
 		Queue<Node> q = new LinkedList<Node>();
