@@ -59,6 +59,13 @@ public class Tree{
 		return Math.max(height(root.left), height(root.right))+1;
 		
 	}
+	
+	static int size(Node root){
+		
+		if(root == null) return 0;
+		return size(root.left) + size(root.right) + 1;
+		
+	}
 		
 	
 	public static void main(String [] args){
@@ -76,6 +83,10 @@ public class Tree{
 		
 		System.out.println("\nHeight Of Tree is");
 		System.out.println(height(root));
+		
+		// Size of Tree means total number of nodes in the tree
+		System.out.println("Size of Tree is");
+		System.out.println(size(root));
 		
 		
 	}
