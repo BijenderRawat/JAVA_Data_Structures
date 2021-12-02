@@ -66,7 +66,20 @@ public class Tree{
 		return size(root.left) + size(root.right) + 1;
 		
 	}
+	
+	static int max(Node root){
 		
+		if(root == null) return Integer.MIN_VALUE;
+		return Math.max(root.data, Math.max(max(root.left), max(root.right)));
+		
+	}
+	
+	static int min(Node root){
+		
+		if(root == null) return Integer.MAX_VALUE;
+		return Math.min(root.data, Math.min(min(root.left), min(root.right)));
+		
+	}
 	
 	public static void main(String [] args){
 		
@@ -87,6 +100,12 @@ public class Tree{
 		// Size of Tree means total number of nodes in the tree
 		System.out.println("Size of Tree is");
 		System.out.println(size(root));
+		
+		System.out.println("Maximum number in the Tree is");
+		System.out.println(max(root));
+		
+		System.out.println("Minimum number of the Tree is");
+		System.out.println(min(root));
 		
 		
 	}
