@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.util.Queue;
 import java.util.LinkedList;
+import java.util.ArrayList;
 
 class Node{
 	Node left, right;
@@ -96,6 +97,40 @@ public class Tree{
 		
 	}
 	
+	static void leftview(Node root){
+		
+		if(root == null) return;
+		Queue<Node> q = new LinkedList<Node>();
+		q.add(root);
+		while(!q.isEmpty()){
+			int size = q.size();
+			for(int i = 1; i <= size; i++){
+				Node current = q.poll();
+				if(i == 1) System.out.print(current.data + " ");
+				if(current.left != null) q.add(current.left);
+				if(current.right != null) q.add(current.right);
+			}
+		}
+		
+	}
+	
+	static void rightview(Node root){
+		
+		if(root == null) return;
+		Queue<Node> q = new LinkedList<Node>();
+		q.add(root);
+		while(!q.isEmpty()){
+			int size = q.size();
+			for(int i = 1; i <= size; i++){
+				Node current = q.poll();
+				if(i == 1) System.out.print(current.data + " ");
+				if(current.right != null) q.add(current.right);
+				if(current.left != null) q.add(current.left);
+			}
+		}
+	
+	}
+	
 	public static void main(String [] args){
 		
 		Node root = createTree();
@@ -124,6 +159,12 @@ public class Tree{
 		
 		System.out.println("level order Traversal in list");
 		LevelOrderTraversal(root);
+		
+		System.out.println("\nLeft view of tree would be");
+		leftview(root);
+		
+		System.out.println("\nRight view of tree would be");
+		rightview(root);
 		
 		
 	}
