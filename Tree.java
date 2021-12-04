@@ -125,6 +125,19 @@ public class Tree{
 		
 	}
 	
+	// Another method to print left view of tree using array
+	static void leftview(Node root, int [] array, int level){
+		if(root == null) return;
+		if(array[level] == 0) array[level] = root.data;
+		leftview(root.left, array, level+1);
+		leftview(root.right, array, level+1);
+	}
+	static void printleftview(Node root){
+		int [] array = new int[height(root)];
+		leftview(root, array, 0);
+		for(int i : array) System.out.print(i + " ");
+	}
+	
 	// Function to print Right View of Tree
 	static void rightview(Node root){
 		
@@ -142,6 +155,20 @@ public class Tree{
 		}
 	
 	}
+	
+	// Another method to print right view of tree using array
+	static void rightview(Node root, int [] array, int level){
+		if(root == null) return;
+		if(array[level] == 0) array[level] = root.data;
+		rightview(root.right, array, level+1);
+		rightview(root.left, array, level+1);
+	}
+	static void printrightview(Node root){
+		int [] array = new int[height(root)];
+		rightview(root, array, 0);
+		for(int i : array) System.out.print(i + " ");
+	}
+	
 	
 	public static void main(String [] args){
 		
@@ -174,8 +201,14 @@ public class Tree{
 		System.out.println("\nLeft view of tree would be");
 		leftview(root);
 		
+		System.out.println("\nLeft view of tree using array");
+		printleftview(root);
+		
 		System.out.println("\nRight view of tree would be");
 		rightview(root);
+		
+		System.out.println("\nRight view of tree using array");
+		printrightview(root);
 		
 		
 	}
