@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.HashMap;
 import java.util.Queue;
 import java.util.LinkedList;
 import java.util.ArrayList;
@@ -170,6 +171,33 @@ public class Tree{
 	}
 	
 	
+	// Top view of tree would be
+	static void topview(Node root, HashMap<Integer, Node> map, int level){
+		if(root == null) return;
+		map.putIfAbsent(level, root);
+		topview(root.left, map, level-1);
+		topview(root.right, map, level+1);
+	}
+	static void printtopview(Node root){
+		HashMap<Integer, Node> map = new HashMap<Integer, Node>();
+		topview(root, map, 0);
+		System.out.println(map);
+		for(Node current : map.values()) System.out.print(current.data + " ");
+	}
+	
+	// Bottom view of tree would be
+	static void bottomview(Node root, HashMap<Integer, Node> map, int level){
+		if(root == null) return;
+		map.put(level, root);
+		bottomview(root.left, map, level-1);
+		bottomview(root.right, map, level+1);
+	}
+	static void printbottomview(Node root){
+		HashMap<Integer, Node> map = new HashMap<Integer, Node>();
+		bottomview(root, map, 0);
+		for(Node current : map.values()) System.out.print(current.data + " ");
+	}
+	
 	public static void main(String [] args){
 		
 		Node root = createTree();
@@ -210,6 +238,11 @@ public class Tree{
 		System.out.println("\nRight view of tree using array");
 		printrightview(root);
 		
+		System.out.println("\nTop view of tree would be");
+		printtopview(root);
+		
+		System.out.println("\nBottom view of tree woould be");
+		printbottomview(root);
 		
 	}
 }
