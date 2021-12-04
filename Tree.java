@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.TreeMap;
 import java.util.HashMap;
 import java.util.Queue;
 import java.util.LinkedList;
@@ -181,8 +182,10 @@ public class Tree{
 	static void printtopview(Node root){
 		HashMap<Integer, Node> map = new HashMap<Integer, Node>();
 		topview(root, map, 0);
-		System.out.println(map);
 		for(Node current : map.values()) System.out.print(current.data + " ");
+		System.out.println("\nTop view from left to right");
+		TreeMap<Integer, Node> treemap = new TreeMap<Integer, map>(map);
+		for(Node current : treemap.values()) System.out.print(current.data + " ");
 	}
 	
 	// Bottom view of tree would be
@@ -196,6 +199,9 @@ public class Tree{
 		HashMap<Integer, Node> map = new HashMap<Integer, Node>();
 		bottomview(root, map, 0);
 		for(Node current : map.values()) System.out.print(current.data + " ");
+		System.out.println("\nBottom view from left to right");
+		TreeMap<Integer, Node> treemap = new TreeMap<Integer, Node>(map);
+		for(Node current : treemap.values()) System.out.print(current.data + " ");
 	}
 	
 	public static void main(String [] args){
