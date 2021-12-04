@@ -184,7 +184,7 @@ public class Tree{
 		topview(root, map, 0);
 		for(Node current : map.values()) System.out.print(current.data + " ");
 		System.out.println("\nTop view from left to right");
-		TreeMap<Integer, Node> treemap = new TreeMap<Integer, map>(map);
+		TreeMap<Integer, Node> treemap = new TreeMap<Integer, Node>(map);
 		for(Node current : treemap.values()) System.out.print(current.data + " ");
 	}
 	
