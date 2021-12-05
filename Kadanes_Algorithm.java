@@ -5,7 +5,7 @@ public class Kadanes_Algorithm {
 	
 	public static void maxsubarray(int [] array) {
 		
-		int sum1 = 0, sum2 = 0, temp = 0;
+		int sum1 = 0, sum2 = 0;
 		Stack<Integer> s1 = new Stack<Integer>();
 		Stack<Integer> s2 = new Stack<Integer>();
 		for(int i = 0; i < array.length; i++) {
@@ -27,16 +27,6 @@ public class Kadanes_Algorithm {
 					s1.push(array[i]);
 					s2.clear();
 					sum2 = 0;
-				}
-				else {
-					if(array[i] >= 0 && temp != 0 && s2.peek() < 0) {
-						temp += array[i];
-						s2.push(array[i]);
-						sum2 += array[i];
-					}else if(array[i] < 0) {
-						s2.push(array[i]);
-						sum2 += array[i];
-					}
 				}
 			}
 			else if(sum1 + array[i] == 0) {
