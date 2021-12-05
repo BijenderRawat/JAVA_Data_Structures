@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.Stack;
 
 public class Kadanes_Algorithm {
 	
@@ -23,9 +23,7 @@ public class Kadanes_Algorithm {
 					s2.clear();
 					sum2 = 0;
 				}
-				else{
-					s2.push(array[i]);
-				}
+				else s2.push(array[i]);
 			}
 			else if(sum1 + array[i] == 0) {
 				s1.clear();
