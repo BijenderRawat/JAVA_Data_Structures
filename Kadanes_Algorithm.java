@@ -16,11 +16,14 @@ public class Kadanes_Algorithm {
 				right = i;
 			}
 		}
-		System.out.println("Max SubArray ");
-		for(int i = left; i <= right; i++){
-			System.out.print(array[i] + " ");
-		}
-		System.out.println("\nMax Sum = " + b);
+		if(left < right) {
+			System.out.println("Max Subarray");
+			for(int i = left; i <= right; i++) {
+				System.out.print(array[i] + " ");
+			}
+			System.out.println("\nMax Sum = " + b);
+		}else System.out.println("Max Subarray\n" + b + "\nMax Sum = " + b);
+
 				
 	}
 
