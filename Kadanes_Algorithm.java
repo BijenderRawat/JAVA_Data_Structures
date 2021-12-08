@@ -23,7 +23,6 @@ public class Kadanes_Algorithm {
 			}
 			System.out.println("\nMax Sum = " + b);
 		}else System.out.println("Max Subarray\n" + b + "\nMax Sum = " + b);
-
 				
 	}
 
