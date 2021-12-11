@@ -42,7 +42,7 @@ public class Search_in_infinite_Sorted_Array{
 		we need to make sure that range increase exponentially, because that exponential growth of range will take our time complexity of algorithm to log(n)
 		
 */
-        Scanner scn = new Scanner(System.in);
+        	Scanner scn = new Scanner(System.in);
 		System.out.println("Enter how many numbers you want to insert ");
 		int n = scn.nextInt();
 		int [] array = new int[n];
