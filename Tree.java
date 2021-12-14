@@ -17,7 +17,6 @@ public class Tree{
 	
 	static Scanner scn = new Scanner(System.in);
 	
-	
 	// Function to create Tree for us
 	public static Node createTree(){
 		
