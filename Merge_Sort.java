@@ -1,45 +1,51 @@
+import java.util.Scanner;
 public class Merge_Sort{
-	static void print(int [] merged){
-		for(int i = 0; i < merged.length; i++){
-			System.out.print(merged[i] + " ");
-		}
-	}
-	static void conquer(int [] arr, int si, int mid, int ei){
+	
+//  funtion to re-join divided arrayay segments into one	
+	static void conquer(int [] array, int si, int mid, int ei){
+		
 		int [] merged = new int[ei-si+1];
-		int i = si, j = mid+1, k = 0;
-		while(i <= mid && j <= ei){
-			if(arr[i] <= arr[j]){
-				merged[k] = arr[i];
-				k += 1;
-				i += 1;
-			}else{
-				merged[k] = arr[j];
-				k += 1;
-				j += 1;
-			}
+		int idx1 = si, idx2 = mid+1, x = 0;
+		while(idx1 <= mid && idx2 <= ei){
+			if(array[idx1] <= array[idx2]) merged[x++] = array[idx1++];
+			else merged[x++] = array[idx2++];
 		}
-		while(i <= mid){
-			merged[k] = arr[i];
-			k += 1;
-			i += 1;
+		while(idx1 <= mid){
+			merged[x++] = array[idx1++];
 		}
-		while(j <= ei){
-			merged[k] = arr[j];
-			k += 1;
-			j += 1;
+		while(idx2 <= ei){
+			merged[x++] = array[idx2++];
 		}
-		print(merged);
+		for(int i = 0, j = si; i < merged.length; i++, j++){
+			array[j] = merged[i];
+		}
+		
 	}
-	static void divide(int [] arr, int si, int ei){
+	
+//  function to divide arrayay into sub-arrayays	
+	static void divide(int [] array, int si, int ei){
+		
 		if(si >= ei) return;
 		int mid = (si + ei) / 2;
-		divide(arr, si, mid);
-		divide(arr, mid+1, ei);
-		conquer(arr, si, mid, ei);
+		divide(array, si, mid);
+		divide(array, mid+1, ei);
+		conquer(array, si, mid, ei);
+	
 	}
+	
 	public static void main(String [] args){
-		int [] arr = {6, 2, 8, 5, 2, 8};
-		int n = arr.length;
-		divide(arr, 0, n-1);
+		
+		Scanner scn = new Scanner(System.in);
+		System.out.print("Enter size of array ");
+		int [] array = new int[scn.nextInt()];
+		System.out.println("Enter the array");
+		for(int i = 0; i < array.length; i++){
+			array[i] = scn.nextInt();
+		}
+		divide(array, 0, array.length-1);
+		for(int i : array){
+			System.out.print(i + " ");
+		}
+		
 	}
 }
