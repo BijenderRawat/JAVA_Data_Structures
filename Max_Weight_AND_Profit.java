@@ -17,14 +17,10 @@ public class Max_Weight_AND_Profit{
 		int n = scn.nextInt();
 		int [] weight = new int[n];
 		System.out.print("Enter weights ");
-		for(int i = 0; i < n; i++){
-			weight[i] = scn.nextInt();
-		}
+		for(int i = 0; i < n; i++) weight[i] = scn.nextInt();
 		int [] profit = new int[n];
 		System.out.print("Enter profits ");
-		for(int i = 0; i < n; i++){
-			profit[i] = scn.nextInt();
-		}
+		for(int i = 0; i < n; i++) profit[i] = scn.nextInt();
 		System.out.print("Enter Capacity of bag ");
 		int c = scn.nextInt();
 		
