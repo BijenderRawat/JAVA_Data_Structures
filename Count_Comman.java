@@ -1,29 +1,43 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Count_Comman {
 	
-	static long gcd(long a, long b) {
+	static int gcd(int a, int b) {
 		if(a == 0) return b;
 		return gcd(b%a, a);
+	}
+	
+	static void countcomman(int g) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		int count = 0;
+		for(int i = 1; i <= Math.sqrt(g); i++) {
+			if(g%i == 0) {
+				if(g/i == i) {
+					count += 1;
+					list.add(i);
+				}
+				else {
+					count += 2;
+					list.add(i);
+					list.add(g/i);
+				}
+			}
+		}
+		System.out.println(count);
+		list.sort(null);
+		System.out.println(list);
 	}
 
 	public static void main(String[] args) {
 		
 		Scanner scn = new Scanner(System.in);
-		System.out.print("Enter two numbers ");
-		long a = scn.nextLong();
-		long b = scn.nextLong();
+		int a = scn.nextInt();
+		int b = scn.nextInt();
 		scn.close();
 		
-		long n = gcd(a, b);
-		int c = 0;
-		for(int i = 1; i <= Math.sqrt(n); i++) {
-			if(n%i == 0) {
-				if(n/i == i) c += 1;
-				else c += 2;
-			}
-		}
-		System.out.print("Total number of comman factors are " + c);
+		int g = gcd(a, b);
+		countcomman(g);
 		
 	}
 
