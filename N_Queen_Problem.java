@@ -35,6 +35,7 @@ public class N_Queen_Problem{
 			if(issafe(chess, row, col)) {
 				chess[row][col] = 1;
 				if(nqueen(chess, row+1)) return true;
+				chess[row][col] = 0;
 			}
 		}
 		return false;
